@@ -27,7 +27,20 @@ For example:
 		m_RunButton.Create(_T("Filter"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
 			rectDummy, this, ID_RUN_BUTTON);
 
- 3) Adjust Layout:
+and add your icon :
+
+	m_ButtonShowAll.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
+		MAKEINTRESOURCE(IDI_PROPERTIES_SHOW_ALL),
+		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+	m_ClearButton.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
+		MAKEINTRESOURCE(IDI_PROPERTIES_CLEAR),
+		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+	m_RunButton.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
+		MAKEINTRESOURCE(IDI_PROPERTIES_RUN),
+		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+
+
+ 3) Adjust Layout ( onCreate and OnSize events ):
  for example:
 
  		m_ButtonShowAll.SetWindowPos(nullptr, rectClient.left,
@@ -50,20 +63,16 @@ For example:
 			rectClient.Width() / 3, m_nComboHeight
 			, SWP_NOACTIVATE | SWP_NOZORDER);
 
- 4) Set icons:
- for example:
+5) After adjust the button you have to make it visible cButton->ShowWindow(true);
 
- 		m_ButtonShowAll.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
-			MAKEINTRESOURCE(IDI_PROPERTIES_SHOW_ALL),
-			IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
-		m_ClearButton.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
-			MAKEINTRESOURCE(IDI_PROPERTIES_CLEAR),
-			IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
-		m_RunButton.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
-			MAKEINTRESOURCE(IDI_PROPERTIES_RUN),
-			IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+for example: 
 
-5) You have to manually set up the message map for these ON_COMMAND and ON_UPDATE events.
+	m_ButtonShowAll.ShowWindow(TRUE);
+	m_ClearButton.ShowWindow(TRUE);
+	m_RunButton.ShowWindow(TRUE);
+
+
+6) You have to manually set up the message map for these ON_COMMAND and ON_UPDATE events.
 For example:
 
 		ON_COMMAND(ID_SHOW_ALL_BUTTON, OnShowAllButton)
@@ -76,10 +85,4 @@ For example:
 		ON_UPDATE_COMMAND_UI(ID_RUN_BUTTON, OnUpdateRunButton)
 
 
-6) After create the button you have to make it visible cButton->ShowWindow(true);
 
-for example: 
-
-	m_ButtonShowAll.ShowWindow(TRUE);
-	m_ClearButton.ShowWindow(TRUE);
-	m_RunButton.ShowWindow(TRUE);
