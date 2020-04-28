@@ -35,9 +35,11 @@ protected:
 	CComboBox m_wndObjectCombo;
 	CPropertiesToolBar m_wndToolBar;
 	CMFCPropertyGridCtrl m_wndPropList;
-	CButton m_ClearButton;
+	CMFCButton m_ClearButton;
 	CMFCButton m_RunButton;
 	CMFCButton m_ButtonShowAll;
+
+	CButton m_CheckboxOR;
 
 // Implementation
 public:

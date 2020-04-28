@@ -41,6 +41,7 @@
 #define IDI_PROPERTIES_SHOW_ALL 310
 #define IDI_PROPERTIES_CLEAR    311
 #define  ID_SHOW_ALL_BUTTON	 312
+#define  ID_CHECK_BOX_OR	 313
 
 // Next default values for new objects
 //

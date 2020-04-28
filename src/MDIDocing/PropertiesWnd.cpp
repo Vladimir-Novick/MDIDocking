@@ -70,7 +70,16 @@ void CPropertiesWnd::AdjustLayout()
 	m_wndObjectCombo.SetWindowPos(nullptr, rectClient.left, rectClient.top, rectClient.Width(), m_nComboHeight*3, SWP_NOACTIVATE | SWP_NOZORDER);
 	m_wndToolBar.SetWindowPos(nullptr, rectClient.left, rectClient.top + m_nComboHeight, rectClient.Width(), cyTlb, SWP_NOACTIVATE | SWP_NOZORDER);
 	m_wndPropList.SetWindowPos(nullptr, rectClient.left, rectClient.top + m_nComboHeight + cyTlb,
-		rectClient.Width(), rectClient.Height() -(m_nComboHeight+cyTlb)- m_nComboHeight , SWP_NOACTIVATE | SWP_NOZORDER);
+		rectClient.Width(), rectClient.Height() -(m_nComboHeight+cyTlb)- m_nComboHeight*2 , SWP_NOACTIVATE | SWP_NOZORDER);
+
+
+
+	m_CheckboxOR.SetWindowPos(nullptr, rectClient.left,
+		rectClient.top + m_nComboHeight + cyTlb + rectClient.Height() - (m_nComboHeight + cyTlb) - m_nComboHeight*2,
+		rectClient.Width(), m_nComboHeight
+		, SWP_NOACTIVATE | SWP_NOZORDER);
+
+
 
 	m_ButtonShowAll.SetWindowPos(nullptr, rectClient.left,
 		rectClient.top + m_nComboHeight + cyTlb + rectClient.Height() - (m_nComboHeight + cyTlb) - m_nComboHeight,
@@ -90,9 +99,8 @@ void CPropertiesWnd::AdjustLayout()
 		, SWP_NOACTIVATE | SWP_NOZORDER);
 	
 
-
-
-
+	m_CheckboxOR.ShowWindow(TRUE);
+	
 	m_ButtonShowAll.ShowWindow(TRUE);
 	m_ClearButton.ShowWindow(TRUE);
 	m_RunButton.ShowWindow(TRUE);
@@ -167,6 +175,10 @@ int CPropertiesWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_RunButton.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
 		MAKEINTRESOURCE(IDI_PROPERTIES_RUN),
 		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+
+
+	m_CheckboxOR.Create(_T("Search by any column ( OR condition )"), WS_CHILD | WS_VISIBLE | BS_AUTOCHECKBOX | BST_CHECKED,
+		rectDummy, this, ID_CHECK_BOX_OR);
 
 	AdjustLayout();
 	return 0;
