@@ -90,15 +90,7 @@ void CPropertiesWnd::AdjustLayout()
 		, SWP_NOACTIVATE | SWP_NOZORDER);
 	
 
-	m_ButtonShowAll.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
-		MAKEINTRESOURCE(IDI_PROPERTIES_SHOW_ALL),
-		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
-	m_ClearButton.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
-		MAKEINTRESOURCE(IDI_PROPERTIES_CLEAR),
-		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
-	m_RunButton.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
-		MAKEINTRESOURCE(IDI_PROPERTIES_RUN),
-		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+
 
 
 	m_ButtonShowAll.ShowWindow(TRUE);
@@ -166,6 +158,15 @@ int CPropertiesWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_RunButton.Create(_T("Filter"), WS_CHILD | WS_VISIBLE | BS_PUSHBUTTON,
 		rectDummy, this, ID_RUN_BUTTON);
 
+	m_ButtonShowAll.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
+		MAKEINTRESOURCE(IDI_PROPERTIES_SHOW_ALL),
+		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+	m_ClearButton.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
+		MAKEINTRESOURCE(IDI_PROPERTIES_CLEAR),
+		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+	m_RunButton.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
+		MAKEINTRESOURCE(IDI_PROPERTIES_RUN),
+		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
 
 	AdjustLayout();
 	return 0;
