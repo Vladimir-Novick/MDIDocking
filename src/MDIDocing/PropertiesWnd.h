@@ -1,6 +1,8 @@
 
 #pragma once
 
+#include <afxbutton.h>
+
 class CPropertiesToolBar : public CMFCToolBar
 {
 public:
@@ -34,8 +36,8 @@ protected:
 	CPropertiesToolBar m_wndToolBar;
 	CMFCPropertyGridCtrl m_wndPropList;
 	CButton m_ClearButton;
-	CButton m_RunButton;
-	CButton m_ButtonShowAll;
+	CMFCButton m_RunButton;
+	CMFCButton m_ButtonShowAll;
 
 // Implementation
 public:
@@ -70,7 +72,6 @@ protected:
 	void SetPropListFont();
 
 	int m_nComboHeight;
-public:
-	afx_msg void OnIdok();
+
 };
 

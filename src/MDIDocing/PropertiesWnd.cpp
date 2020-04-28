@@ -67,7 +67,7 @@ void CPropertiesWnd::AdjustLayout()
 
 	int cyTlb = m_wndToolBar.CalcFixedLayout(FALSE, TRUE).cy;
 
-	m_wndObjectCombo.SetWindowPos(nullptr, rectClient.left, rectClient.top, rectClient.Width(), m_nComboHeight, SWP_NOACTIVATE | SWP_NOZORDER);
+	m_wndObjectCombo.SetWindowPos(nullptr, rectClient.left, rectClient.top, rectClient.Width(), m_nComboHeight*3, SWP_NOACTIVATE | SWP_NOZORDER);
 	m_wndToolBar.SetWindowPos(nullptr, rectClient.left, rectClient.top + m_nComboHeight, rectClient.Width(), cyTlb, SWP_NOACTIVATE | SWP_NOZORDER);
 	m_wndPropList.SetWindowPos(nullptr, rectClient.left, rectClient.top + m_nComboHeight + cyTlb,
 		rectClient.Width(), rectClient.Height() -(m_nComboHeight+cyTlb)- m_nComboHeight , SWP_NOACTIVATE | SWP_NOZORDER);
@@ -369,7 +369,4 @@ void CPropertiesWnd::SetPropListFont()
 }
 
 
-void CPropertiesWnd::OnIdok()
-{
-	// TODO: Add your command handler code here
-}
+
