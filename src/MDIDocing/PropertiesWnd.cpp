@@ -76,30 +76,33 @@ void CPropertiesWnd::AdjustLayout()
 		rectClient.top + m_nComboHeight + cyTlb + rectClient.Height() - (m_nComboHeight + cyTlb) - m_nComboHeight,
 		rectClient.Width() / 3, m_nComboHeight
 		, SWP_NOACTIVATE | SWP_NOZORDER);
-	m_ButtonShowAll.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
-		MAKEINTRESOURCE(IDI_PROPERTIES_SHOW_ALL),
-		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
-	m_ButtonShowAll.ShowWindow(TRUE);
 
 
 	m_ClearButton.SetWindowPos(nullptr, rectClient.left + rectClient.Width() / 3,
 		rectClient.top + m_nComboHeight + cyTlb + rectClient.Height() - (m_nComboHeight + cyTlb) - m_nComboHeight,
 		rectClient.Width()/3, m_nComboHeight
 		, SWP_NOACTIVATE | SWP_NOZORDER);
-	m_ClearButton.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
-		MAKEINTRESOURCE(IDI_PROPERTIES_CLEAR),
-		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
-	m_ClearButton.ShowWindow(TRUE);
-
 
 
 	m_RunButton.SetWindowPos(nullptr, rectClient.left + (rectClient.Width()/3)*2,
 		rectClient.top + m_nComboHeight + cyTlb + rectClient.Height() - (m_nComboHeight + cyTlb) - m_nComboHeight,
 		rectClient.Width() / 3, m_nComboHeight
 		, SWP_NOACTIVATE | SWP_NOZORDER);
+	
+
+	m_ButtonShowAll.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
+		MAKEINTRESOURCE(IDI_PROPERTIES_SHOW_ALL),
+		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+	m_ClearButton.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
+		MAKEINTRESOURCE(IDI_PROPERTIES_CLEAR),
+		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
 	m_RunButton.SetIcon((HICON)LoadImage(AfxGetApp()->m_hInstance,
 		MAKEINTRESOURCE(IDI_PROPERTIES_RUN),
 		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
+
+
+	m_ButtonShowAll.ShowWindow(TRUE);
+	m_ClearButton.ShowWindow(TRUE);
 	m_RunButton.ShowWindow(TRUE);
 }
 
