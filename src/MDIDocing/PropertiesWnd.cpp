@@ -177,7 +177,7 @@ int CPropertiesWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 		IMAGE_ICON, 16, 16, LR_DEFAULTCOLOR));
 
 
-	m_CheckboxOR.Create(_T("Search by any column ( OR condition )"), WS_CHILD | WS_VISIBLE | BS_AUTOCHECKBOX | BST_CHECKED,
+	m_CheckboxOR.Create(_T("OR Search Condition"), WS_CHILD | WS_VISIBLE | BS_AUTOCHECKBOX | BST_CHECKED,
 		rectDummy, this, ID_CHECK_BOX_OR);
 
 	AdjustLayout();
