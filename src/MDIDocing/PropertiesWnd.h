@@ -32,6 +32,7 @@ public:
 
 protected:
 	CFont m_fntPropList;
+	CFont m_fntCheckBox;
 	CComboBox m_wndObjectCombo;
 	CPropertiesToolBar m_wndToolBar;
 	CMFCPropertyGridCtrl m_wndPropList;
@@ -72,7 +73,7 @@ protected:
 
 	void InitPropList();
 	void SetPropListFont();
-
+	void SetCheckBoxFont();
 	int m_nComboHeight;
 
 };

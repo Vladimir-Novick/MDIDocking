@@ -180,6 +180,8 @@ int CPropertiesWnd::OnCreate(LPCREATESTRUCT lpCreateStruct)
 	m_CheckboxOR.Create(_T("OR Search Condition"), WS_CHILD | WS_VISIBLE | BS_AUTOCHECKBOX | BST_CHECKED,
 		rectDummy, this, ID_CHECK_BOX_OR);
 
+	SetCheckBoxFont();
+
 	AdjustLayout();
 	return 0;
 }
@@ -380,5 +382,24 @@ void CPropertiesWnd::SetPropListFont()
 	m_wndObjectCombo.SetFont(&m_fntPropList);
 }
 
+void CPropertiesWnd::SetCheckBoxFont() {
 
+	::DeleteObject(m_fntCheckBox.Detach());
+	LOGFONT lf;
+	afxGlobalData.fontRegular.GetLogFont(&lf);
+
+	NONCLIENTMETRICS info;
+	info.cbSize = sizeof(info);
+
+	afxGlobalData.GetNonClientMetrics(info);
+
+	lf.lfHeight = info.lfMenuFont.lfHeight;
+	lf.lfWeight = info.lfMenuFont.lfWeight;
+	lf.lfItalic = info.lfMenuFont.lfItalic;
+
+	m_fntCheckBox.CreateFontIndirect(&lf);
+
+
+	m_CheckboxOR.SetFont(&m_fntCheckBox);
+}
 

@@ -85,4 +85,26 @@ For example:
 		ON_UPDATE_COMMAND_UI(ID_RUN_BUTTON, OnUpdateRunButton)
 
 
+7) Set font as menu items:
+For example:
 
+		void CPropertiesWnd::SetCheckBoxFont() {
+
+			::DeleteObject(m_fntCheckBox.Detach());
+			LOGFONT lf;
+			afxGlobalData.fontRegular.GetLogFont(&lf);
+
+			NONCLIENTMETRICS info;
+			info.cbSize = sizeof(info);
+
+			afxGlobalData.GetNonClientMetrics(info);
+
+			lf.lfHeight = info.lfMenuFont.lfHeight;
+			lf.lfWeight = info.lfMenuFont.lfWeight;
+			lf.lfItalic = info.lfMenuFont.lfItalic;
+
+			m_fntCheckBox.CreateFontIndirect(&lf);
+
+
+			m_CheckboxOR.SetFont(&m_fntCheckBox);
+		}
