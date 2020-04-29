@@ -108,3 +108,33 @@ For example:
 
 			m_CheckboxOR.SetFont(&m_fntCheckBox);
 		}
+
+## Using c++ 11 lambda expression:
+
+		bool CLicenseView::FindString(const std::string& strHaystack,
+					const std::string& strNeedle)
+		{
+			auto it = std::search(
+				strHaystack.begin(), strHaystack.end(),
+				strNeedle.begin(), strNeedle.end(),
+				[](char ch1, char ch2) -> bool { return std::tolower(ch1) == std::tolower(ch2); }
+			);
+			return (it != strHaystack.end());
+		}
+
+
+
+		bool CLicenseView::CaseInSensCompare(const std::string& str1, 
+		          const std::string& str2)
+		{
+			return ((str1.size() == str2.size()) &&
+				std::equal(str1.begin(), str1.end(), str2.begin(), 
+					[](char c1, char c2) -> bool {
+						if (c1 == c2)
+							return true;
+						else if (std::tolower(c1) == std::tolower(c2))
+							return true;
+						return false;
+					}
+				  ));
+		}
